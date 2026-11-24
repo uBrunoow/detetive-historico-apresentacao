@@ -24,3 +24,4 @@ Abra o `index.html` no navegador (ou o endereço publicado na Vercel). É um sit
 Bruno Werner, Antônio Budal Arins de Lima, Nicolas Daniel Malheiros e Daniel Menezes Cordeiro Junior.
 
 Fontes tipográficas: Jersey 10, Jacquard 24, Atkinson Hyperlegible Next e Courier Prime, sob a licença SIL Open Font License.
+,
