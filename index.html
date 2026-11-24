@@ -572,6 +572,27 @@ body.ov .frame.cur{box-shadow:0 0 0 10px var(--ink)}
 #s19 .fail b{font-weight:700;color:var(--amber-hi)}
 #s19 .warn{margin-top:40px;padding-left:24px;border-left:6px solid var(--amber);font:400 30px/1.3 var(--sans);color:var(--paper)}
 
+/* v2: sumário */
+#s2 .toc{position:absolute;left:120px;right:120px;top:360px;list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:96px}
+#s2 .toc li{display:flex;align-items:center;gap:32px;padding:40px 0;border-top:3px solid var(--wire-dk);font:400 38px var(--sans);color:var(--paper)}
+#s2 .toc li b{font:400 52px/1 var(--pixel);color:var(--amber);width:70px}
+/* v2: benchmark + diferencial */
+#s8 .refs6{position:absolute;left:120px;right:120px;top:320px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 24px}
+#s8 .refs6 div{border:3px solid var(--wire-dk);background:var(--night-card);padding:16px 24px;display:flex;flex-direction:column;gap:4px}
+#s8 .refs6 b{font:400 40px/1 var(--pixel);font-weight:400;color:var(--paper)}
+#s8 .refs6 span{font:400 24px var(--sans);color:var(--mist)}
+#s8 .grp{position:absolute;left:120px;top:590px;font:400 42px/1 var(--pixel);color:var(--amber)}
+#s8 .four{position:absolute;left:120px;top:650px;width:1200px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+#s8 .four .card{padding:24px 26px;height:230px;display:flex;flex-direction:column;gap:12px}
+#s8 .four b{font:400 52px/1 var(--pixel);color:var(--p-txt)}
+#s8 .four p{font:400 30px/1.25 var(--sans)}
+#s8 .plan{position:absolute;left:1380px;top:650px;width:420px;height:230px;padding:24px 26px;border:4px dashed var(--mist);display:flex;flex-direction:column;gap:12px}
+#s8 .plan small{font:400 40px/1 var(--pixel);color:var(--mist)}
+#s8 .plan p{font:400 30px/1.25 var(--sans);color:var(--paper)}
+/* v2: dificuldades com 6 linhas */
+#s20 .tr{min-height:84px}
+#s20 .tbl{gap:10px}
+
 
 
 /* ═════════════ Interface do apresentador ═════════════ */
@@ -653,7 +674,7 @@ html.pdf .ui,.pdf .ui{display:none!important}
   data-parede: "fluxo" (serpentina com conectores e cursor) ou "cabo" (grade ligada por um cabo com plugues)
   data-orbes: "auto" (orbes de cor nos slides claros) ou "off"
 -->
-<body data-marca="Detetive Histórico" data-ano="UDESC · 2026" data-rodape="Informática na Educação · TADS" data-rodape2="" data-parede="cabo" data-orbes="off">
+<body data-marca="Detetive Histórico" data-ano="UDESC · 2026" data-rodape="Informática na Educação · TADS" data-rodape2="Bruno · Antônio · Nicolas · Daniel" data-parede="cabo" data-orbes="off">
 
 <!-- logo do cabeçalho: um SVG pequeno, que use currentColor -->
 <template id="logo"><svg viewBox="0 0 36 36" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M10 2h12v4H10zM6 6h4v4H6zM22 6h4v4h-4zM2 10h4v12H2zM26 10h4v12h-4zM6 22h4v4H6zM22 22h4v4h-4zM10 26h12v4H10zM26 26h4v4h-4zM30 30h4v4h-4z"/><path fill="var(--amber)" d="M10 10h4v4h-4z"/></svg></template>
@@ -693,49 +714,35 @@ html.pdf .ui,.pdf .ui{display:none!important}
 <div id="wall">
 <svg id="cables" aria-hidden="true"></svg>
 
-<!-- ═════════════ 01 · Capa ═════════════ -->
-<section class="slide dk capa" id="s1" data-sec="Abertura" data-who="Equipe" data-title="Detetive Histórico"
+<section class="slide dk capa" id="s1" data-sec="Abertura" data-title="Detetive Histórico"
 
  data-notes="Apresentar a equipe e o projeto em uma frase: um jogo de investigação em que o aluno vira detetive e descobre o fato histórico analisando fontes. O visual da apresentação é o do próprio jogo. Quem abre: Bruno (sugestão; ajustem a divisão).">
   <h1 class="giant" data-split="Detetive|Histórico"></h1>
   <p class="sub a" style="--i:2">Toda época deixa rastros. Um jogo de investigação para aprender História analisando fontes.</p>
-  <div class="acts a" style="--i:4"><a class="btn" href="#10" data-goto="10">Começar investigação <span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="by">Bruno, Antônio, Nicolas e Daniel</span></div>
+  <div class="acts a" style="--i:4"><a class="btn" href="#3" data-goto="3">Começar investigação <span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></span></a><span class="by">Bruno, Antônio, Nicolas e Daniel</span></div>
   <figure class="photo a fr" style="--i:3"><img src="cena.png" alt="Cena do jogo: sala de leitura escura iluminada por uma lanterna, com escrivaninha, estante e um calendário destacado, ao lado do painel de pistas"><figcaption>Sala de leitura · Vila Serena, 1923</figcaption></figure>
   <span class="pin a pp" style="--i:5" aria-hidden="true"></span>
   <div class="qr a pp" style="--i:6"><img class="qr-svg" src="qrcode.png" alt="QR code que abre detetive-historico.vercel.app"><p><b>Jogue agora</b>Aponte a câmera do celular</p></div>
 </section>
 
-<!-- ═════════════ 02 · Divisor 01 ═════════════ -->
-<section class="slide dk div" id="s2" data-sec="Parte 01" data-who="Bruno" data-title="O problema e a ideia"
-
- data-notes="Transição. Nesta parte: o problema, o que é o projeto, como nasceu a ideia e para quem é.">
-  <span class="num a fd" aria-hidden="true">01</span>
-  <p class="part a"><span class="bar"><i class="on"></i><i></i><i></i><i></i></span>Parte 01 de 04</p>
-  <h1 data-split="O problema|e a ideia"></h1>
-  <p class="sub a" style="--i:3">Por que ensinar História pela análise de fontes</p>
-  <p class="who a" style="--i:5"><b>B</b>Bruno <small>apresenta</small></p>
+<section class="slide dk" id="s2" data-sec="Sumário" data-title="Sumário"
+ data-notes="Roteiro em sete partes, na ordem sugerida pela professora.">
+  <div class="hd sm"><p class="kick a">Sumário</p><h1 class="title" data-split="O caminho da investigação"></h1></div>
+  <ol class="toc">
+    <li class="a" style="--i:1"><b>01</b>O que é o projeto</li>
+    <li class="a" style="--i:2"><b>02</b>Como nasceu a ideia</li>
+    <li class="a" style="--i:3"><b>03</b>O que já existe e o nosso diferencial</li>
+    <li class="a" style="--i:4"><b>04</b>Diagramas</li>
+    <li class="a" style="--i:5"><b>05</b>Telas do jogo</li>
+    <li class="a" style="--i:6"><b>06</b>Dificuldades e como contornamos</li>
+    <li class="a" style="--i:7"><b>07</b>O que levamos da experiência</li>
+  </ol>
 </section>
 
-<!-- ═════════════ 03 · Problema ═════════════ -->
-<section class="slide dk" id="s3" data-sec="O problema" data-who="Bruno" data-title="Decorar datas não ensina a pensar historicamente"
- data-notes="Datas importam; o problema é o ensino parar nelas. O foco do projeto é a análise de fontes e o raciocínio por evidências. Os três cartões são as habilidades do primeiro objetivo específico: formular, testar e justificar hipóteses com base em evidências.">
-  <div class="hd">
-    <p class="kick a">O problema</p>
-    <h1 class="title" data-split="Decorar datas não ensina|a pensar historicamente"></h1>
-    <p class="lead a" style="--i:2">Datas importam, mas o ensino não pode parar nelas. O aluno precisa <b>interpretar documentos, comparar perspectivas e concluir</b> a partir de evidências, como faz o historiador.</p>
-  </div>
-  <div class="bd g3">
-    <div class="it card a" style="--i:3"><span class="well hot"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><div><h2>Formular hipóteses</h2><p>A partir das primeiras pistas</p></div></div>
-    <div class="it card a" style="--i:4"><span class="well cool"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span><div><h2>Testar com evidências</h2><p>Confrontando as fontes encontradas</p></div></div>
-    <div class="it card a" style="--i:5"><span class="well"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span><div><h2>Justificar a resposta</h2><p>Indicando as fontes que a sustentam</p></div></div>
-  </div>
-</section>
-
-<!-- ═════════════ 04 · O que é ═════════════ -->
-<section class="slide dk" id="s4" data-sec="O projeto" data-who="Bruno" data-title="O aluno vira detetive"
+<section class="slide dk" id="s4" data-sec="O projeto" data-title="O aluno vira detetive"
  data-notes="Leia cada pista e o que ela indica: a moeda de ouro remete à exploração do ouro em Minas; a carta sobre impostos, à insatisfação com a cobrança; a forca, à repressão aos envolvidos. Juntas, sustentam a hipótese da Inconfidência Mineira. O aluno não adivinha: constrói a resposta com evidências. Este é o exemplo da proposta; no jogo, o caso se chama O ouro, o poeta e a forca.">
   <div class="hd">
-    <p class="kick a">O que é o projeto</p>
+    <p class="kick a">01 · O que é o projeto</p>
     <h1 class="title" data-split="O aluno vira detetive|e descobre o fato histórico"></h1>
   </div>
   <svg class="wires" viewBox="0 0 1920 1080" aria-hidden="true">
@@ -753,139 +760,44 @@ html.pdf .ui,.pdf .ui{display:none!important}
   <span class="pin" style="left:1590px;top:612px" aria-hidden="true"></span>
 </section>
 
-<!-- ═════════════ 05 · Origem ═════════════ -->
-<section class="slide dk" id="s5" data-sec="Origem da ideia" data-who="Bruno" data-title="E se o aluno fizesse o trabalho do historiador?"
- data-notes="[Ajustar com a história real de como a equipe chegou ao tema.] A pergunta que guiou o projeto: e se o aluno fizesse o que faz o historiador, que formula hipóteses a partir de vestígios? A linha mostra o que cada entrega produziu, até esta 8ª semana.">
+<section class="slide dk" id="s3" data-sec="Origem da ideia" data-title="E se o aluno fizesse o trabalho do historiador?"
+ data-notes="[Ajustar com a história real de como a equipe chegou ao tema.] Datas importam, mas o ensino não pode parar nelas. A ideia foi pôr o aluno no lugar do historiador, que forma hipóteses a partir de vestígios. Os três cartões são o primeiro objetivo específico do projeto. Público: alunos de 11 a 17 anos (6º ao 9º ano e ensino médio) e, de forma secundária, professores de História.">
   <div class="hd">
-    <p class="kick a">Como nasceu a ideia</p>
+    <p class="kick a">02 · Como nasceu a ideia</p>
     <h1 class="title" data-split="E se o aluno fizesse|o trabalho do historiador?"></h1>
-    <p class="lead a" style="--i:2">Objetivo geral: levar o aluno a <b>construir o conhecimento histórico</b> analisando e interpretando fontes, em vez de recebê-lo pronto.</p>
+    <p class="lead a" style="--i:2">Datas importam, mas o ensino não pode parar nelas. Queríamos que o aluno <b>interpretasse documentos e concluísse a partir de evidências</b>.</p>
   </div>
-  <div class="tl">
-    <div class="wk a" style="--i:3"><b>S1</b><span>Tema e público definidos</span></div>
-    <div class="wk a" style="--i:4"><b>S2</b><span>6 trabalhos analisados</span></div>
-    <div class="wk a" style="--i:5"><b>S3–4</b><span>Casos de uso, protótipo e requisitos</span></div>
-    <div class="wk a" style="--i:6"><b>S5</b><span>Partida completa no ar</span></div>
-    <div class="wk a" style="--i:7"><b>S6</b><span>Visual de alta fidelidade</span></div>
-    <div class="wk a" style="--i:8"><b>S7</b><span>14 casos de teste</span></div>
-    <div class="wk now a" style="--i:9"><b>S8</b><span>Tutoriais e apresentação</span></div>
+  <div class="bd g3">
+    <div class="it card a" style="--i:3"><span class="well hot"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span><div><h2>Formular hipóteses</h2><p>A partir das primeiras pistas</p></div></div>
+    <div class="it card a" style="--i:4"><span class="well cool"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span><div><h2>Testar com evidências</h2><p>Confrontando as fontes encontradas</p></div></div>
+    <div class="it card a" style="--i:5"><span class="well"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span><div><h2>Justificar a resposta</h2><p>Indicando as fontes que a sustentam</p></div></div>
   </div>
 </section>
 
-<!-- ═════════════ 06 · Público ═════════════ -->
-<section class="slide dk" id="s6" data-sec="Público-alvo" data-who="Bruno" data-title="Para quem é o jogo"
- data-notes="Público principal: alunos de 11 a 17 anos. As versões dos casos por nível (fundamental com pistas visuais e textos curtos; médio com fontes primárias reais) e os filtros por nível estão planejados, ainda não implementados. Hoje a dificuldade varia de caso para caso (Fácil ou Média). Público secundário: professores de História. Passa a palavra para o Antônio.">
-  <div class="hd sm"><p class="kick a">Público-alvo</p><h1 class="title" data-split="Para quem é o jogo"></h1></div>
-  <div class="bd g2">
-    <div class="pane card a fl" style="--i:2"><span class="tag red">Principal</span><p class="big-n">11–17</p><p>anos · alunos do 6º ao 9º ano e do ensino médio</p><p class="m">Hoje: casos de dificuldade Fácil e Média. Planejado: versões por nível, com textos curtos no fundamental e fontes primárias no médio.</p></div>
-    <div class="pane card a fr" style="--i:3"><span class="tag s">Secundário</span><h2>Professores<br>de História</h2><p>Em aula, no laboratório ou como tarefa de casa</p><p class="m">Individualmente ou em equipes.</p></div>
+<section class="slide dk" id="s8" data-sec="Benchmark" data-title="O que já existe e o nosso diferencial"
+ data-notes="Analisamos três produtos e três artigos: Carmen Sandiego (investigação por pistas), Discovery Tour (vestígios históricos), Mission US (narrativa e documentos), Museu Sankofa (investigação no ensino de História), Turista do Tempo (História do Brasil) e Tríade (avaliação por futuros professores). Nenhum deles reúne as quatro características de baixo. O painel do professor estava na proposta, mas ficou para depois porque exige banco de dados.">
+  <div class="hd sm"><p class="kick a">03 · Benchmark e trabalhos correlatos</p><h1 class="title" data-split="O que já existe"></h1></div>
+  <div class="refs6">
+    <div class="a" style="--i:1"><b>Carmen Sandiego</b><span>Google e HMH [2019]</span></div>
+    <div class="a" style="--i:2"><b>AC: Discovery Tour</b><span>Ubisoft [2018]</span></div>
+    <div class="a" style="--i:3"><b>Mission US</b><span>THIRTEEN/WNET [2010]</span></div>
+    <div class="a" style="--i:4"><b>Museu Sankofa</b><span>Nunes et al. [2026]</span></div>
+    <div class="a" style="--i:5"><b>Turista do Tempo</b><span>Santos et al. [2021]</span></div>
+    <div class="a" style="--i:6"><b>Jogo Tríade</b><span>Pimentel et al. [2021]</span></div>
   </div>
-</section>
-
-<!-- ═════════════ 07 · Divisor 02 ═════════════ -->
-<section class="slide dk div" id="s7" data-sec="Parte 02" data-who="Antônio" data-title="O que já existe e como o jogo funciona"
-
- data-notes="Transição. Nesta parte: benchmark, diferencial, mecânica do jogo e pontuação.">
-  <span class="num a fd" aria-hidden="true">02</span>
-  <p class="part a"><span class="bar"><i class="on"></i><i class="on"></i><i></i><i></i></span>Parte 02 de 04</p>
-  <h1 data-split="Benchmark|e mecânica"></h1>
-  <p class="sub a" style="--i:3">Benchmark, diferencial, mecânica e pontuação</p>
-  <p class="who a" style="--i:5"><b>A</b>Antônio <small>apresenta</small></p>
-</section>
-
-<!-- ═════════════ 08 · Benchmark ═════════════ -->
-<section class="slide dk" id="s8" data-sec="Benchmark" data-who="Antônio" data-title="Seis trabalhos analisados"
- data-notes="Três produtos de mercado e três artigos, analisados na 2ª semana. Cada um entrou por um motivo, que é a coluna do meio. O próximo slide mostra o que nenhum deles reúne.">
-  <div class="hd sm"><p class="kick a">Benchmark e trabalhos correlatos</p><h1 class="title" data-split="Seis trabalhos analisados"></h1></div>
-  <div class="bd tbl" style="top:330px">
-    <div class="tr th a" style="--i:1"><span>Trabalho</span><span><span class="dot p"></span>Por que analisamos</span><span><span class="dot s"></span>Referência</span></div>
-    <div class="tr card a" style="--i:2"><span class="k">Carmen Sandiego no Google Earth</span><span class="v">Investigação e dedução por pistas</span><span class="v">Google e HMH [2019]</span></div>
-    <div class="tr card a" style="--i:3"><span class="k">Assassin’s Creed: Discovery Tour</span><span class="v">Vestígios e ambientes históricos</span><span class="v">Ubisoft [2018]</span></div>
-    <div class="tr card a" style="--i:4"><span class="k">Mission US</span><span class="v">Narrativa e documentos para a sala</span><span class="v">THIRTEEN/WNET [2010]</span></div>
-    <div class="tr card a" style="--i:5"><span class="k">Museu Sankofa</span><span class="v">Investigação no ensino de História</span><span class="v">Nunes et al. [2026]</span></div>
-    <div class="tr card a" style="--i:6"><span class="k">Turista do Tempo</span><span class="v">História do Brasil, com foco regional</span><span class="v">Santos et al. [2021]</span></div>
-    <div class="tr card a" style="--i:7"><span class="k">Avaliação do jogo Tríade</span><span class="v">Avaliação por futuros professores</span><span class="v">Pimentel et al. [2021]</span></div>
-  </div>
-</section>
-
-<!-- ═════════════ 09 · Diferencial (papel) ═════════════ -->
-<section class="slide dk" id="s9" data-sec="Diferencial" data-who="Antônio" data-title="O que nenhum trabalho analisado reúne"
- data-notes="A afirmação vale para os seis trabalhos analisados, não para todo o mercado. Separe o que já funciona do que está planejado: os quatro primeiros estão no MVP; o painel e os relatórios para o professor ficaram para depois porque exigem banco de dados.">
-  <p class="stampx a pp" style="--i:7" aria-hidden="true">CASO ABERTO</p>
-  <div class="hd">
-    <p class="kick a">Diferencial</p>
-    <h1 class="title" data-split="Nenhum trabalho analisado|reúne todas estas características"></h1>
-  </div>
-  <p class="grp a" style="--i:1;left:120px">No MVP</p>
-  <p class="grp a" style="--i:5;left:1380px">Planejado</p>
+  <p class="grp a" style="--i:7">Nenhum dos analisados reúne, ao mesmo tempo:</p>
   <div class="four">
-    <div class="card a" style="--i:2"><b>01</b><p>Fontes históricas primárias</p></div>
-    <div class="card a" style="--i:2"><b>02</b><p>Investigação em cenas</p></div>
-    <div class="card a" style="--i:3"><b>03</b><p>Navegador, sem instalação</p></div>
-    <div class="card a" style="--i:4"><b>04</b><p>História do Brasil e Geral</p></div>
+    <div class="card a" style="--i:8"><b>01</b><p>Fontes históricas primárias</p></div>
+    <div class="card a" style="--i:9"><b>02</b><p>Investigação em cenas</p></div>
+    <div class="card a" style="--i:10"><b>03</b><p>Navegador, sem instalação</p></div>
+    <div class="card a" style="--i:11"><b>04</b><p>História do Brasil e Geral</p></div>
   </div>
-  <div class="plan a" style="--i:6"><b>05</b><p>Painel e relatórios para o professor</p><small>exige banco de dados</small></div>
+  <div class="plan a" style="--i:12"><small>Planejado</small><p>Painel e relatórios para o professor</p></div>
 </section>
 
-<!-- ═════════════ 10 · Fluxo ═════════════ -->
-<section class="slide dk" id="s10" data-sec="Mecânica" data-who="Antônio" data-title="Uma partida em oito passos"
- data-notes="Os passos 6 e 7 são o centro pedagógico: o aluno não só acha pistas; ele ordena as evidências e situa o caso no tempo. A linha do tempo funciona por botões, sem arrastar. O veredito tem duas partes e é enviado uma única vez.">
-  <div class="hd sm"><p class="kick a">Mecânica do jogo</p><h1 class="title" data-split="Uma partida em oito passos"></h1></div>
-  <svg class="wires" viewBox="0 0 1920 1080" aria-hidden="true">
-    <defs><marker id="ah10" orient="auto" markerWidth="4" markerHeight="4" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="var(--p)"/></marker></defs>
-    <path class="w str draw" pathLength="1" style="--i:2" marker-end="url(#ah10)" d="M480 440 L 521 440"/>
-    <path class="w str draw" pathLength="1" style="--i:3" marker-end="url(#ah10)" d="M893 440 L 934 440"/>
-    <path class="w str draw" pathLength="1" style="--i:4" marker-end="url(#ah10)" d="M1306 440 L 1348 440"/>
-    <path class="w str draw" pathLength="1" style="--i:5" marker-end="url(#ah10)" d="M1540 550 L 1540 668"/>
-    <path class="w str draw" pathLength="1" style="--i:6" marker-end="url(#ah10)" d="M1360 790 L 1318 790"/>
-    <path class="w str draw" pathLength="1" style="--i:7" marker-end="url(#ah10)" d="M946 790 L 905 790"/>
-    <path class="w str draw" pathLength="1" style="--i:8" marker-end="url(#ah10)" d="M533 790 L 492 790"/>
-  </svg>
-  <div class="node a" style="--i:1;left:120px;top:330px"><p class="n">01</p><h3>Início</h3><p>Tela inicial do jogo</p></div>
-  <div class="node a" style="--i:2;left:533px;top:330px"><p class="n">02</p><h3>Fases</h3><p>Escolha do caso no mapa</p></div>
-  <div class="node a" style="--i:3;left:946px;top:330px"><p class="n">03</p><h3>Briefing</h3><p>Narrativa e pergunta do caso</p></div>
-  <div class="node a" style="--i:4;left:1360px;top:330px"><p class="n">04</p><h3>Cena</h3><p>Explorar objetos e encontrar fontes</p></div>
-  <div class="node a" style="--i:5;left:1360px;top:680px"><p class="n">05</p><h3>Caderno</h3><p>Fontes, anotações e hipóteses</p></div>
-  <div class="node key a" style="--i:6;left:946px;top:680px"><p class="n">06</p><h3>Linha do tempo</h3><p>Ordenar e relacionar as evidências</p></div>
-  <div class="node key a" style="--i:7;left:533px;top:680px"><p class="n">07</p><h3>Veredito</h3><p>Situar a época e confirmar a ordem</p></div>
-  <div class="node a" style="--i:8;left:120px;top:680px"><p class="n">08</p><h3>Encerramento</h3><p>Contexto histórico e medalhas</p></div>
-  <p class="callout a" style="--i:9"><b>06 e 07</b> são o raciocínio histórico do jogo</p>
-</section>
-
-<!-- ═════════════ 11 · Pontuação ═════════════ -->
-<section class="slide dk" id="s11" data-sec="Pontuação" data-who="Antônio" data-title="Vale ponto acertar a época e a ordem"
- data-notes="Só o veredito pontua: época vale 400 e a ordem dos fatos até 600. Acertar a ordem e errar a época dá 600 e resolve o caso: o jogo avalia duas dimensões diferentes do raciocínio histórico. Examinar mais fontes não tira pontos, para não desestimular a investigação. As medalhas valorizam o processo, não a velocidade. Passa a palavra para o Nicolas.">
-  <div class="hd sm"><p class="kick a">Pontuação e medalhas</p><h1 class="title" data-split="Vale ponto acertar a época e a ordem"></h1></div>
-  <div class="eq">
-    <div class="a" style="--i:2"><p class="big-n">400</p><small>época (A a E)</small></div>
-    <i class="a fd" style="--i:3" aria-hidden="true">+</i>
-    <div class="a" style="--i:4"><p class="big-n">600</p><small>ordem dos fatos (até)</small></div>
-    <i class="a fd" style="--i:5" aria-hidden="true">=</i>
-    <div class="a" style="--i:6"><p class="big-n">1000</p><span class="st3"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><small>3 estrelas</small></div>
-  </div>
-  <p class="obs a fr" style="--i:7">Ordem certa e época errada: <b>600, caso resolvido</b>. São duas dimensões avaliadas. Examinar mais fontes não tira pontos.</p>
-  <div class="meds g3">
-    <div class="it sm card a" style="--i:8"><span class="well sm hot"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><div><h2>Arquivista</h2><p>Coletar todas as fontes do caso</p></div></div>
-    <div class="it sm card a" style="--i:9"><span class="well sm cool"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span><div><h2>Cronista</h2><p>Justificar a linha do tempo</p></div></div>
-    <div class="it sm card a" style="--i:10"><span class="well sm"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span><div><h2>Detetive</h2><p>Resolver o caso</p></div></div>
-  </div>
-</section>
-
-<!-- ═════════════ 12 · Divisor 03 ═════════════ -->
-<section class="slide dk div" id="s12" data-sec="Parte 03" data-who="Nicolas" data-title="Como o jogo foi construído"
-
- data-notes="Transição. Nesta parte: modelo conceitual, arquitetura, telas e casos.">
-  <span class="num a fd" aria-hidden="true">03</span>
-  <p class="part a"><span class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>Parte 03 de 04</p>
-  <h1 data-split="Como o jogo|foi construído"></h1>
-  <p class="sub a" style="--i:3">Modelo, arquitetura, telas e casos</p>
-  <p class="who a" style="--i:5"><b>N</b>Nicolas <small>apresenta</small></p>
-</section>
-
-<!-- ═════════════ 13 · Modelo conceitual ═════════════ -->
-<section class="slide dk" id="s13" data-sec="Modelo conceitual" data-who="Nicolas" data-title="Do caso ao veredito"
+<section class="slide dk" id="s13" data-sec="Modelo conceitual" data-title="Do caso ao veredito"
  data-notes="Leitura: um caso tem cenas; cada cena contém objetos que revelam fontes; as fontes vão para o caderno, onde o aluno registra notas e hipóteses. O caso também tem fatos, que o aluno ordena no veredito junto com a época; o veredito gera o resultado. Destaque a Fonte: não é uma pista que entrega a resposta; tem autoria, data, procedência e contexto, como um documento de arquivo. [Modelo simplificado a partir do fluxo documentado; conferir com os tipos do código.]">
-  <div class="hd sm"><p class="kick a">Modelo conceitual (simplificado)</p><h1 class="title" data-split="Do caso ao veredito"></h1></div>
+  <div class="hd sm"><p class="kick a">04 · Diagramas · modelo conceitual (simplificado)</p><h1 class="title" data-split="Do caso ao veredito"></h1></div>
   <svg class="wires" viewBox="0 0 1920 1080" aria-hidden="true">
     <defs><marker id="ah13" orient="auto" markerWidth="4" markerHeight="4" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="var(--p)"/></marker></defs>
     <path class="w str draw" pathLength="1" marker-end="url(#ah13)" d="M500 385 L 758 385"/>
@@ -913,86 +825,48 @@ html.pdf .ui,.pdf .ui{display:none!important}
   <p class="elab a fd" style="--i:9;left:982px;top:715px">vai para o</p>
 </section>
 
-<!-- ═════════════ 14 · Arquitetura ═════════════ -->
-<section class="slide dk" id="s14" data-sec="Arquitetura" data-who="Nicolas" data-title="Simples, gratuita e no navegador"
- data-notes="A pergunta-chave: por que o gabarito não fica no navegador? Porque qualquer aluno poderia inspecionar os arquivos do site e achar a resposta antes de jogar. Cada caso tem um arquivo público (cenas e fontes) e um privado (época certa e ordem de referência). O veredito é conferido no servidor por Server Actions, e o resultado fica num cookie assinado com HMAC. Tudo sem banco de dados e sem dados pessoais. Decisões registradas em DECISOES.md.">
-  <div class="hd sm"><p class="kick a">Arquitetura</p><h1 class="title" data-split="Simples, gratuita e no navegador"></h1>
-    <p class="lead a" style="--i:1">O aluno não pode achar a resposta inspecionando o site: <b>o gabarito nunca chega ao navegador.</b></p></div>
+<section class="slide dk" id="s10" data-sec="Mecânica" data-title="Uma partida em oito passos"
+ data-notes="Os passos 6 e 7 são o centro pedagógico: o aluno não só acha pistas; ele ordena as evidências e situa o caso no tempo. A linha do tempo funciona por botões, sem arrastar. O veredito tem duas partes e é enviado uma única vez: a época certa vale 400 pontos e a ordem dos fatos até 600; com 600 o caso está resolvido e com 1000 são três estrelas. Examinar mais fontes não tira pontos. Medalhas: Arquivista (todas as fontes), Cronista (linha do tempo justificada) e Detetive (caso resolvido).">
+  <div class="hd sm"><p class="kick a">04 · Diagramas · fluxo de uma partida</p><h1 class="title" data-split="Uma partida em oito passos"></h1></div>
   <svg class="wires" viewBox="0 0 1920 1080" aria-hidden="true">
-    <defs><marker id="ah14" orient="auto" markerWidth="4" markerHeight="4" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="var(--p)"/></marker></defs>
-    <path class="w str draw" pathLength="1" marker-end="url(#ah14)" d="M473 675 L 527 675"/>
-    <path class="w str draw" pathLength="1" marker-end="url(#ah14)" d="M893 675 L 947 675"/>
-    <path class="w str draw" pathLength="1" marker-end="url(#ah14)" d="M1313 675 L 1367 675"/>
+    <defs><marker id="ah10" orient="auto" markerWidth="4" markerHeight="4" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="var(--p)"/></marker></defs>
+    <path class="w str draw" pathLength="1" style="--i:2" marker-end="url(#ah10)" d="M480 440 L 521 440"/>
+    <path class="w str draw" pathLength="1" style="--i:3" marker-end="url(#ah10)" d="M893 440 L 934 440"/>
+    <path class="w str draw" pathLength="1" style="--i:4" marker-end="url(#ah10)" d="M1306 440 L 1348 440"/>
+    <path class="w str draw" pathLength="1" style="--i:5" marker-end="url(#ah10)" d="M1540 550 L 1540 668"/>
+    <path class="w str draw" pathLength="1" style="--i:6" marker-end="url(#ah10)" d="M1360 790 L 1318 790"/>
+    <path class="w str draw" pathLength="1" style="--i:7" marker-end="url(#ah10)" d="M946 790 L 905 790"/>
+    <path class="w str draw" pathLength="1" style="--i:8" marker-end="url(#ah10)" d="M533 790 L 492 790"/>
   </svg>
-  <div class="ar card a" style="--i:1;left:120px"><small>Cliente</small><h2>Navegador</h2><p>Computador ou celular, sem instalação.</p></div>
-  <div class="ar card a" style="--i:2;left:540px"><small>Interface</small><h2>Next.js 16</h2><p>React 19, TypeScript e Tailwind 4.</p></div>
-  <div class="ar hot-card a" style="--i:3;left:960px"><small>Servidor</small><h2>Server Actions</h2><p>Conferem o veredito com o arquivo privado do caso.</p></div>
-  <div class="ar card a" style="--i:4;left:1380px;width:420px"><small>Dados</small><h2>Público e privado</h2><p>Cenas e fontes no público; gabarito no privado; resultado em cookie com HMAC.</p></div>
-  <div class="chips a" style="--i:6"><span class="tag">Sem banco de dados</span><span class="tag">Sem dados pessoais</span><span class="tag">Hospedado na Vercel</span><span class="tag s">Código no GitHub</span></div>
+  <div class="node a" style="--i:1;left:120px;top:330px"><p class="n">01</p><h3>Início</h3><p>Tela inicial do jogo</p></div>
+  <div class="node a" style="--i:2;left:533px;top:330px"><p class="n">02</p><h3>Fases</h3><p>Escolha do caso no mapa</p></div>
+  <div class="node a" style="--i:3;left:946px;top:330px"><p class="n">03</p><h3>Briefing</h3><p>Narrativa e pergunta do caso</p></div>
+  <div class="node a" style="--i:4;left:1360px;top:330px"><p class="n">04</p><h3>Cena</h3><p>Explorar objetos e encontrar fontes</p></div>
+  <div class="node a" style="--i:5;left:1360px;top:680px"><p class="n">05</p><h3>Caderno</h3><p>Fontes, anotações e hipóteses</p></div>
+  <div class="node key a" style="--i:6;left:946px;top:680px"><p class="n">06</p><h3>Linha do tempo</h3><p>Ordenar e relacionar as evidências</p></div>
+  <div class="node key a" style="--i:7;left:533px;top:680px"><p class="n">07</p><h3>Veredito</h3><p>Situar a época e confirmar a ordem</p></div>
+  <div class="node a" style="--i:8;left:120px;top:680px"><p class="n">08</p><h3>Encerramento</h3><p>Contexto histórico e medalhas</p></div>
+  <p class="callout a" style="--i:9"><b>06 e 07</b> são o raciocínio histórico do jogo</p>
 </section>
 
-<!-- ═════════════ 15 · Telas: chegada ═════════════ -->
-<section class="slide dk" id="s15" data-sec="Telas" data-who="Nicolas" data-title="Chegando ao caso"
+<section class="slide dk" id="s15" data-sec="Telas" data-title="Chegando ao caso"
  data-notes="Capturas da versão publicada em detetive-historico.vercel.app. Na tela de fases, cada alfinete é um caso; não há ordem obrigatória e o tutorial ensina a jogar. Os casos beta aparecem sinalizados como conteúdo em revisão.">
-  <div class="hd sm"><p class="kick a">Telas do jogo</p><h1 class="title" data-split="Chegando ao caso"></h1></div>
+  <div class="hd sm"><p class="kick a">05 · Telas do jogo</p><h1 class="title" data-split="Chegando ao caso"></h1></div>
   <figure class="shot a fl" style="--i:2;left:120px;top:330px;width:800px;height:380px"><img src="inicio.jpg" alt="Tela inicial: título Detetive Histórico em letras góticas sobre uma rua noturna em pixel art, com o detetive, um poste aceso e o botão Começar investigação"><figcaption>Início: noite em pixel art; aperte Enter para começar.</figcaption></figure>
   <figure class="shot a fr" style="--i:3;left:1000px;top:330px;width:800px;height:380px"><img src="fases.jpg" alt="Tela de fases: alfinetes vermelhos sobre prédios marcam o tutorial e os casos 1 a 5; à direita, o cartão do caso O livro que sumiu da Biblioteca de Vila Serena"><figcaption>Fases: cada alfinete é um caso; o beta vem sinalizado como em revisão.</figcaption></figure>
 </section>
 
-<!-- ═════════════ 16 · Telas: investigação ═════════════ -->
-<section class="slide dk" id="s16" data-sec="Telas" data-who="Nicolas" data-title="Uma fonte real do caso da abolição"
+<section class="slide dk" id="s16" data-sec="Telas" data-title="Uma fonte real do caso da abolição"
  data-notes="Caso A lei de dois artigos. Na Redação do jornal, a lanterna revela os objetos; a folha sobre a mesa abre a Lei nº 3.353, a Lei Áurea, transcrita do original, com a ficha de catálogo: tipo, data, autoria e onde foi encontrada. O aviso no pé da ficha lembra que uma fonte mostra o que alguém registrou. Ao guardar, ela vai para o caderno com o carimbo Arquivado. Se der tempo, mostrar isso ao vivo pelo QR code.">
-  <div class="hd sm"><p class="kick a">Telas do jogo · A lei de dois artigos</p><h1 class="title" data-split="Uma fonte real, como no arquivo"></h1></div>
+  <div class="hd sm"><p class="kick a">05 · Telas do jogo · A lei de dois artigos</p><h1 class="title" data-split="Uma fonte real, como no arquivo"></h1></div>
   <figure class="shot a fl" style="--i:2;left:120px;top:330px;width:640px;height:423px"><img src="cena-abolicao.png" alt="Cena Redação do jornal do caso da abolição, iluminada por uma lanterna, com o painel de pistas"><figcaption>Redação do jornal: a folha sobre a mesa é uma fonte.</figcaption></figure>
   <figure class="shot a fr" style="--i:3;left:840px;top:330px;width:960px;height:606px"><img src="lei-aurea.png" alt="Fonte aberta: transcrição da Lei nº 3.353, de 13 de maio de 1888, ao lado da ficha com tipo de fonte, data, autoria e onde foi encontrada, já guardada no caderno com o carimbo Arquivado"></figure>
   <p class="anno a" style="--i:5">Transcrição do original<br>+ ficha: tipo, data, autoria e procedência</p>
 </section>
 
-<!-- ═════════════ 17 · Casos ═════════════ -->
-<section class="slide dk" id="s17" data-sec="Casos" data-who="Nicolas" data-title="Seis casos na versão atual"
- data-notes="Títulos como aparecem no site. O tutorial é fictício; o caso da abolição usa fontes reais; os outros quatro estão em beta e não passaram por revisão histórica. Não apresentar os seis como revisados. Passa a palavra para o Daniel.">
-  <div class="hd sm"><p class="kick a">Casos</p><h1 class="title" data-split="Seis casos na versão atual"></h1></div>
-  <div class="bd tbl" style="top:320px">
-    <div class="tr th a" style="--i:1"><span>Caso</span><span><span class="dot p"></span>Tema</span><span><span class="dot s"></span>Situação</span></div>
-    <div class="tr card a" style="--i:2"><span class="k">O livro que sumiu da Biblioteca de Vila Serena</span><span class="v">Fictício, ensina a jogar</span><span class="v">Tutorial</span></div>
-    <div class="tr card a" style="--i:3"><span class="k">A lei de dois artigos</span><span class="v">Abolição da escravatura</span><span class="v">Fontes reais</span></div>
-    <div class="tr card a" style="--i:4"><span class="k">A carta guardada por 270 anos</span><span class="v">Carta de Pero Vaz de Caminha</span><span class="v">Beta, em revisão</span></div>
-    <div class="tr card a" style="--i:5"><span class="k">O ouro, o poeta e a forca</span><span class="v">Inconfidência Mineira</span><span class="v">Beta, em revisão</span></div>
-    <div class="tr card a" style="--i:6"><span class="k">O homem que saiu da vida</span><span class="v">Era Vargas</span><span class="v">Beta, em revisão</span></div>
-    <div class="tr card a" style="--i:7"><span class="k">O vapor e as crianças da fábrica</span><span class="v">Revolução Industrial</span><span class="v">Beta, em revisão</span></div>
-  </div>
-  <p class="nota a" style="--i:8">Nenhum caso passou ainda por revisão de um professor de História.</p>
-</section>
-
-<!-- ═════════════ 18 · Divisor 04 ═════════════ -->
-<section class="slide dk div" id="s18" data-sec="Parte 04" data-who="Daniel" data-title="Testes, dificuldades e aprendizados"
-
- data-notes="Transição. Nesta parte: testes, dificuldades, destaques e próximos passos.">
-  <span class="num a fd" aria-hidden="true">04</span>
-  <p class="part a"><span class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>Parte 04 de 04</p>
-  <h1 data-split="Testes, dificuldades|e aprendizados"></h1>
-  <p class="sub a" style="--i:3">O que garante o jogo e o que a experiência deixou</p>
-  <p class="who a" style="--i:5"><b>D</b>Daniel <small>apresenta</small></p>
-</section>
-
-<!-- ═════════════ 19 · Testes ═════════════ -->
-<section class="slide dk" id="s19" data-sec="Testes" data-who="Daniel" data-title="Os testes acharam uma falha real"
- data-notes="Duas métricas diferentes: 134 testes automatizados verificam funções do jogo (pontuação, enigmas, linha do tempo, assinatura do estado); 14 casos de teste descrevem cenários de uso, quatro deles executados à mão. O CT10 reprovou: alterar o cookie permitiu mudar o resultado registrado. Impacto: a pontuação oficial pode ser adulterada. É a primeira prioridade. E atenção: esses testes verificam o software; ainda não medem se o aluno aprende. Pendente: resultado do build com a checagem de vazamento do gabarito (CT12). [Atualizar se o CT10 já foi corrigido.]">
-  <div class="hd sm"><p class="kick a">Testes</p><h1 class="title" data-split="Os testes acharam uma falha real"></h1></div>
-  <div class="bd" style="top:330px">
-    <div class="g3m">
-      <div class="card a" style="--i:2"><p class="big-n">134</p><h2>testes automatizados</h2><p>Funções do jogo. Todos aprovados em 17/11.</p></div>
-      <div class="card a" style="--i:3"><p class="big-n">14</p><h2>casos de teste</h2><p>Cenários de uso [Bansal 2023]. 3 de 4 manuais aprovados.</p></div>
-      <div class="fail a" style="--i:4"><span class="tag red">CT10 · reprovado</span><p><b>Falha:</b> alterar o cookie mudou o resultado registrado.</p><p><b>Impacto:</b> a pontuação oficial pode ser adulterada.</p><p><b>Situação:</b> primeira correção da lista.</p></div>
-    </div>
-    <p class="warn a" style="--i:6">Testes verificam o software. Se o aluno aprende, só testes com alunos e professores vão dizer.</p>
-  </div>
-</section>
-
-<!-- ═════════════ 20 · Dificuldades ═════════════ -->
-<section class="slide dk" id="s20" data-sec="Dificuldades" data-who="Daniel" data-title="O que travou e como contornamos"
- data-notes="Seções 6.2 e 6.5 do artigo. A principal dificuldade foi localizar fontes primárias digitalizadas e transcritas (por exemplo, o pedido do Clube Militar de 1887 e a Gazeta de Notícias de 14/05/1888 não foram localizados). A resposta mudou de texto livre para múltipla escolha e depois para o veredito em duas partes; cada mudança exigiu ajustar arquivos dos casos, telas e pontuação.">
-  <div class="hd sm"><p class="kick a">Dificuldades</p><h1 class="title" data-split="O que travou e como contornamos"></h1></div>
+<section class="slide dk" id="s20" data-sec="Dificuldades" data-title="O que travou e como contornamos"
+ data-notes="Seções 6.2, 6.5 e 7 do artigo. Testes: 134 automatizados aprovados e 14 casos de teste; dos 4 manuais detalhados, 3 aprovados e o CT10 reprovado. Testes verificam o software; se o aluno aprende, só testes com alunos e professores vão dizer. A principal dificuldade foi localizar fontes primárias digitalizadas e transcritas (por exemplo, o pedido do Clube Militar de 1887 e a Gazeta de Notícias de 14/05/1888 não foram localizados). A resposta mudou de texto livre para múltipla escolha e depois para o veredito em duas partes; cada mudança exigiu ajustar arquivos dos casos, telas e pontuação.">
+  <div class="hd sm"><p class="kick a">06 · Dificuldades</p><h1 class="title" data-split="O que travou e como contornamos"></h1></div>
   <div class="bd tbl" style="top:320px">
     <div class="tr th a" style="--i:1"><span><span class="dot p"></span>Dificuldade</span><span><span class="dot s"></span>Como contornamos</span></div>
     <div class="tr card a" style="--i:2"><span class="v">Validar a resposta sem expor o gabarito no navegador</span><span class="v">Server Actions, solução em arquivo privado e cookie com HMAC</span></div>
@@ -1000,37 +874,22 @@ html.pdf .ui,.pdf .ui{display:none!important}
     <div class="tr card a" style="--i:4"><span class="v">Linha do tempo para teclado, toque e leitor de tela</span><span class="v">Ordenação por botões, sem arrastar</span></div>
     <div class="tr card a" style="--i:5"><span class="v">Mecânica de resposta mudou três vezes</span><span class="v">Veredito em duas partes: época e ordem</span></div>
     <div class="tr card a" style="--i:6"><span class="v">Achar fontes primárias digitalizadas e transcritas</span><span class="v">Abolição com fontes reais; casos beta em revisão</span></div>
+    <div class="tr card a" style="--i:7"><span class="v">Teste CT10: cookie adulterado mudava o resultado</span><span class="v">Falha registrada; corrigir é a próxima prioridade</span></div>
   </div>
 </section>
 
-<!-- ═════════════ 21 · Destaques ═════════════ -->
-<section class="slide dk" id="s21" data-sec="Resultados" data-who="Daniel" data-title="O que entregamos"
- data-notes="Resultados concretos da versão atual. [Cada integrante pode acrescentar um aprendizado pessoal.]">
-  <div class="hd sm"><p class="kick a">Resultados</p><h1 class="title" data-split="O que entregamos"></h1></div>
+<section class="slide dk" id="s21" data-sec="Destaques" data-title="O que levamos da experiência"
+ data-notes="[Cada integrante pode acrescentar um aprendizado pessoal.] Próximos passos, se perguntarem: corrigir o CT10, revisar os casos com um professor de História, testar com alunos e professores e só depois o painel do professor.">
+  <div class="hd sm"><p class="kick a">07 · Pontos positivos</p><h1 class="title" data-split="O que levamos da experiência"></h1></div>
   <div class="bd g2" style="top:330px;gap:36px 40px">
-    <div class="it card a" style="--i:2"><span class="well hot"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><div><h2>Partida completa no ar</h2><p>Do início ao encerramento, em oito telas.</p></div></div>
-    <div class="it card a" style="--i:3"><span class="well cool"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><div><h2>Seis casos</h2><p>Um tutorial, um com fontes reais e quatro em beta.</p></div></div>
-    <div class="it card a" style="--i:4"><span class="well"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><h2>134 testes automatizados</h2><p>E uma falha real encontrada no CT10.</p></div></div>
-    <div class="it card a" style="--i:5"><span class="well"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></span><div><h2>Pronto para a escola</h2><p>Navegador, sem instalação e sem dados pessoais.</p></div></div>
+    <div class="it card a" style="--i:2"><span class="well hot"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><div><h2>Partida completa no ar</h2><p>Seis casos jogáveis no navegador, sem instalação.</p></div></div>
+    <div class="it card a" style="--i:3"><span class="well cool"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><div><h2>Fontes reais em jogo</h2><p>O caso da abolição usa documentos de época.</p></div></div>
+    <div class="it card a" style="--i:4"><span class="well"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span><div><h2>Testes que acham falhas</h2><p>134 testes automatizados e um defeito real no CT10.</p></div></div>
+    <div class="it card a" style="--i:5"><span class="well"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></span><div><h2>Decisões registradas</h2><p>Cada mudança de regra tem o motivo anotado.</p></div></div>
   </div>
 </section>
 
-<!-- ═════════════ 22 · Próximos passos ═════════════ -->
-<section class="slide dk" id="s22" data-sec="Próximos passos" data-who="Daniel" data-title="O que vem depois"
- data-notes="Primeiro integridade técnica e conteúdo correto; depois avaliação com o público. A próxima etapa não é só criar funcionalidades: é avaliar se a experiência contribui para o pensamento histórico dos estudantes, com alunos e professores, usando um instrumento consolidado como o de Savi et al. [2010].">
-  <div class="hd sm"><p class="kick a">Próximos passos</p><h1 class="title" data-split="O que vem depois"></h1></div>
-  <ol class="steps bd a" style="--i:2;top:360px;right:780px;gap:26px">
-    <li class="on"><b>1</b>Corrigir a falha do CT10 (cookie adulterado)</li>
-    <li class="on"><b>2</b>Revisão dos casos por um professor de História</li>
-    <li class="on"><b>3</b>Testes com alunos e professores [Savi et al. 2010]</li>
-    <li class="on"><b>4</b>Painel do professor com relatórios da turma</li>
-    <li class="on"><b>5</b>Filtros por nível de ensino e período (RF02)</li>
-  </ol>
-  <div class="side card a fr" style="--i:4"><h2>A pergunta que falta</h2><p>O jogo funciona. Falta saber se ele ajuda o aluno a pensar historicamente, e isso só a avaliação com a turma responde.</p></div>
-</section>
-
-<!-- ═════════════ 23 · Encerramento ═════════════ -->
-<section class="slide dk fim" id="s23" data-sec="Encerramento" data-who="Equipe" data-title="Perguntas?"
+<section class="slide dk fim" id="s23" data-sec="Encerramento" data-title="Perguntas?"
 
  data-notes="Todos voltam à frente para as perguntas. Se der tempo, abrir o jogo ao vivo no endereço do slide.">
   <p class="k2 a">Caso encerrado.</p>
