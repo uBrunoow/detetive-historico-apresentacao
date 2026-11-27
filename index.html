@@ -543,7 +543,7 @@ body.ov .frame.cur{box-shadow:0 0 0 10px var(--ink)}
 #s23 .giant{top:290px}
 #s23 .lead{top:570px;color:var(--paper)}
 #s23 .by span{border-radius:0;background:var(--night-card);border:3px solid var(--wire-dk);color:var(--paper);box-shadow:5px 5px 0 var(--black)}
-#s23 .qr{left:900px;top:640px;flex-direction:column;align-items:flex-start;gap:16px}
+#s23 .qr{left:980px;top:560px;flex-direction:column;align-items:flex-start;gap:16px}
 #s23 .qr .qr-svg{width:200px;height:200px}
 #s23 .qr p{width:240px}
 #s23 .qr p b{margin-bottom:0}
@@ -574,7 +574,7 @@ body.ov .frame.cur{box-shadow:0 0 0 10px var(--ink)}
 
 /* v2: sumário */
 #s2 .toc{position:absolute;left:120px;right:120px;top:360px;list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:96px}
-#s2 .toc li{display:flex;align-items:center;gap:32px;padding:40px 0;border-top:3px solid var(--wire-dk);font:400 38px var(--sans);color:var(--paper)}
+#s2 .toc li{display:flex;align-items:center;gap:32px;padding:24px 0;border-top:3px solid var(--wire-dk);font:400 38px var(--sans);color:var(--paper)}
 #s2 .toc li b{font:400 52px/1 var(--pixel);color:var(--amber);width:70px}
 /* v2: benchmark + diferencial */
 #s8 .refs6{position:absolute;left:120px;right:120px;top:320px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 24px}
@@ -595,6 +595,24 @@ body.ov .frame.cur{box-shadow:0 0 0 10px var(--ink)}
 
 /* sem o cabo vermelho entre os slides */
 #cables{display:none}
+
+/* v3: estado do protótipo */
+#s24 .cols{position:absolute;left:120px;right:120px;top:330px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+#s24 .cols h2{font:400 56px/1 var(--pixel);margin-bottom:22px}
+#s24 .ok h2{color:var(--p-txt)}
+#s24 .ok{padding:36px 40px}
+#s24 .ok ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+#s24 .ok li{font:400 30px/1.3 var(--sans);padding-left:44px;position:relative}
+#s24 .ok li::before{content:"";position:absolute;left:0;top:8px;width:22px;height:22px;background:var(--green);box-shadow:3px 3px 0 var(--edge)}
+#s24 .todo{padding:36px 40px;border:4px dashed var(--mist)}
+#s24 .todo h2{color:var(--amber-hi)}
+#s24 .todo ol{list-style:none;counter-reset:t;display:flex;flex-direction:column;gap:18px}
+#s24 .todo li{counter-increment:t;font:400 30px/1.3 var(--sans);color:var(--paper);padding-left:48px;position:relative}
+#s24 .todo li::before{content:counter(t);position:absolute;left:0;top:-2px;font:400 40px/1 var(--pixel);color:var(--amber)}
+/* v3: demonstração */
+#s23 .stepn{font:400 40px/1 var(--pixel);font-weight:400}
+#s23 .sum{top:200px;gap:18px}
+#s23 .lead{width:760px}
 
 
 
@@ -729,16 +747,18 @@ html.pdf .ui,.pdf .ui{display:none!important}
 </section>
 
 <section class="slide dk" id="s2" data-sec="Sumário" data-title="Sumário"
- data-notes="Roteiro em sete partes, na ordem sugerida pela professora.">
+ data-notes="Roteiro na ordem sugerida pela professora, terminando na demonstração do jogo. Tempo total: 15 minutos, cerca de 9 de slides e 5 de demonstração.">
   <div class="hd sm"><p class="kick a">Sumário</p><h1 class="title" data-split="O caminho da investigação"></h1></div>
   <ol class="toc">
     <li class="a" style="--i:1"><b>01</b>O que é o projeto</li>
     <li class="a" style="--i:2"><b>02</b>Como nasceu a ideia</li>
-    <li class="a" style="--i:3"><b>03</b>O que já existe e o nosso diferencial</li>
-    <li class="a" style="--i:4"><b>04</b>Diagramas</li>
+    <li class="a" style="--i:3"><b>03</b>O que já existe e o diferencial</li>
+    <li class="a" style="--i:4"><b>04</b>Diagramas e mecânica</li>
     <li class="a" style="--i:5"><b>05</b>Telas do jogo</li>
-    <li class="a" style="--i:6"><b>06</b>Dificuldades e como contornamos</li>
-    <li class="a" style="--i:7"><b>07</b>O que levamos da experiência</li>
+    <li class="a" style="--i:6"><b>06</b>Dificuldades e soluções</li>
+    <li class="a" style="--i:7"><b>07</b>Estado do protótipo</li>
+    <li class="a" style="--i:8"><b>08</b>O que levamos da experiência</li>
+    <li class="a" style="--i:9"><b>09</b>Demonstração ao vivo</li>
   </ol>
 </section>
 
@@ -852,6 +872,24 @@ html.pdf .ui,.pdf .ui{display:none!important}
   <p class="callout a" style="--i:9"><b>06 e 07</b> são o raciocínio histórico do jogo</p>
 </section>
 
+<section class="slide dk" id="s11" data-sec="Pontuação" data-title="Vale ponto acertar a época e a ordem"
+ data-notes="Só o veredito pontua: época vale 400 e a ordem dos fatos até 600. Acertar a ordem e errar a época dá 600 e resolve o caso: o jogo avalia duas dimensões diferentes do raciocínio histórico. Examinar mais fontes não tira pontos, para não desestimular a investigação. As medalhas valorizam o processo, não a velocidade.">
+  <div class="hd sm"><p class="kick a">04 · Mecânica · pontuação e medalhas</p><h1 class="title" data-split="Vale ponto acertar a época e a ordem"></h1></div>
+  <div class="eq">
+    <div class="a" style="--i:2"><p class="big-n">400</p><small>época (A a E)</small></div>
+    <i class="a fd" style="--i:3" aria-hidden="true">+</i>
+    <div class="a" style="--i:4"><p class="big-n">600</p><small>ordem dos fatos (até)</small></div>
+    <i class="a fd" style="--i:5" aria-hidden="true">=</i>
+    <div class="a" style="--i:6"><p class="big-n">1000</p><span class="st3"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><small>3 estrelas</small></div>
+  </div>
+  <p class="obs a fr" style="--i:7">Ordem certa e época errada: <b>600, caso resolvido</b>. São duas dimensões avaliadas. Examinar mais fontes não tira pontos.</p>
+  <div class="meds g3">
+    <div class="it sm card a" style="--i:8"><span class="well sm hot"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><div><h2>Arquivista</h2><p>Coletar todas as fontes do caso</p></div></div>
+    <div class="it sm card a" style="--i:9"><span class="well sm cool"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span><div><h2>Cronista</h2><p>Justificar a linha do tempo</p></div></div>
+    <div class="it sm card a" style="--i:10"><span class="well sm"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></span><div><h2>Detetive</h2><p>Resolver o caso</p></div></div>
+  </div>
+</section>
+
 <section class="slide dk" id="s15" data-sec="Telas" data-title="Chegando ao caso"
  data-notes="Capturas da versão publicada em detetive-historico.vercel.app. Na tela de fases, cada alfinete é um caso; não há ordem obrigatória e o tutorial ensina a jogar. Os casos beta aparecem sinalizados como conteúdo em revisão.">
   <div class="hd sm"><p class="kick a">05 · Telas do jogo</p><h1 class="title" data-split="Chegando ao caso"></h1></div>
@@ -881,9 +919,28 @@ html.pdf .ui,.pdf .ui{display:none!important}
   </div>
 </section>
 
+<section class="slide dk" id="s24" data-sec="Estado do protótipo" data-title="O que já funciona e o que falta"
+ data-notes="Este é um protótipo: a partida completa já funciona, mas ainda faltam itens importantes. A ordem da coluna da direita é a ordem de prioridade: primeiro a correção do CT10 e a revisão do conteúdo; depois o professor e os testes com a turma.">
+  <div class="hd sm"><p class="kick a">07 · Estado do protótipo</p><h1 class="title" data-split="O que já funciona e o que falta"></h1></div>
+  <div class="cols">
+    <div class="card ok a fl" style="--i:2"><h2>Já funciona</h2><ul>
+      <li>Partida completa, do início ao encerramento</li>
+      <li>Seis casos jogáveis, um com fontes reais</li>
+      <li>Pontuação e medalhas conferidas no servidor</li>
+      <li>Computador e celular, sem instalação</li>
+      <li>134 testes automatizados aprovados</li></ul></div>
+    <div class="todo a fr" style="--i:3"><h2>Ainda falta</h2><ol>
+      <li>Corrigir a falha do CT10 (cookie adulterado)</li>
+      <li>Revisão histórica dos quatro casos beta</li>
+      <li>Painel e relatórios para o professor</li>
+      <li>Versões por nível de ensino e filtros</li>
+      <li>Testes com alunos e professores</li></ol></div>
+  </div>
+</section>
+
 <section class="slide dk" id="s21" data-sec="Destaques" data-title="O que levamos da experiência"
  data-notes="[Cada integrante pode acrescentar um aprendizado pessoal.] Próximos passos, se perguntarem: corrigir o CT10, revisar os casos com um professor de História, testar com alunos e professores e só depois o painel do professor.">
-  <div class="hd sm"><p class="kick a">07 · Pontos positivos</p><h1 class="title" data-split="O que levamos da experiência"></h1></div>
+  <div class="hd sm"><p class="kick a">08 · Pontos positivos</p><h1 class="title" data-split="O que levamos da experiência"></h1></div>
   <div class="bd g2" style="top:330px;gap:36px 40px">
     <div class="it card a" style="--i:2"><span class="well hot"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg></span><div><h2>Partida completa no ar</h2><p>Seis casos jogáveis no navegador, sem instalação.</p></div></div>
     <div class="it card a" style="--i:3"><span class="well cool"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg></span><div><h2>Fontes reais em jogo</h2><p>O caso da abolição usa documentos de época.</p></div></div>
@@ -892,18 +949,18 @@ html.pdf .ui,.pdf .ui{display:none!important}
   </div>
 </section>
 
-<section class="slide dk fim" id="s23" data-sec="Encerramento" data-title="Perguntas?"
-
- data-notes="Todos voltam à frente para as perguntas. Se der tempo, abrir o jogo ao vivo no endereço do slide.">
-  <p class="k2 a">Caso encerrado.</p>
-  <h1 class="giant" data-split="Perguntas?"></h1>
-  <p class="lead a" style="--i:2">Toda época deixa rastros. No Detetive Histórico, o aluno aprende a segui-los.</p>
+<section class="slide dk fim" id="s23" data-sec="Demonstração" data-title="Demonstração ao vivo"
+ data-notes="Passar para o jogo no navegador (detetive-historico.vercel.app) e seguir os quatro passos no caso A lei de dois artigos. Cerca de 5 minutos. As perguntas ficam para depois da demonstração.">
+  <p class="k2 a">Agora, a demonstração.</p>
+  <h1 class="giant" data-split="Ao vivo"></h1>
+  <p class="lead a" style="--i:2">Vamos jogar o caso da abolição seguindo os passos ao lado. As perguntas ficam para o final.</p>
   <p class="by a" style="--i:4"><span>Bruno</span><span>Antônio</span><span>Nicolas</span><span>Daniel</span></p>
-  <div class="qr a pp" style="--i:8"><img class="qr-svg" src="qrcode.png" alt="QR code que abre detetive-historico.vercel.app"><p><b>Jogue agora</b></p></div>
+  <div class="qr a pp" style="--i:9"><img class="qr-svg" src="qrcode.png" alt="QR code que abre detetive-historico.vercel.app"><p><b>Jogue junto</b></p></div>
   <div class="sum">
-    <div class="it card a fr" style="--i:3;align-items:center"><span class="chk stamp" style="--t:1100ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4L18 8"/></svg></span><div><h2>Fontes no centro</h2><p>Investigar, não decorar</p></div></div>
-    <div class="it card a fr" style="--i:5;align-items:center"><span class="chk stamp" style="--t:1400ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4L18 8"/></svg></span><div><h2>Gabarito protegido</h2><p>Solução só no servidor</p></div></div>
-    <div class="it card a fr" style="--i:7;align-items:center"><span class="chk stamp" style="--t:1700ms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12.5l4 4L18 8"/></svg></span><div><h2>Pronto para a escola</h2><p>Navegador, sem instalação</p></div></div>
+    <div class="it card a fr" style="--i:3;align-items:center"><span class="well sm hot"><b class="stepn">1</b></span><div><h2>Explorar a cena</h2><p>A lanterna revela os objetos</p></div></div>
+    <div class="it card a fr" style="--i:4;align-items:center"><span class="well sm cool"><b class="stepn">2</b></span><div><h2>Examinar uma fonte</h2><p>A Lei nº 3.353 e a sua ficha</p></div></div>
+    <div class="it card a fr" style="--i:5;align-items:center"><span class="well sm"><b class="stepn">3</b></span><div><h2>Montar a linha do tempo</h2><p>Ordenar as evidências</p></div></div>
+    <div class="it card a fr" style="--i:6;align-items:center"><span class="well sm"><b class="stepn">4</b></span><div><h2>Dar o veredito</h2><p>Época, ordem e solução comentada</p></div></div>
   </div>
 </section>
 
